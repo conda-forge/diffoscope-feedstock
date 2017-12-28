@@ -14,7 +14,6 @@ source:
 build:
   number: 0
   skip: true  # [win or py2k]
-  noarch: python
   entry_points:
     - diffoscope = diffoscope.main:main
 
