@@ -1,6 +1,6 @@
 {% set name = "diffoscope" %}
-{% set version = "88" %}
-{% set sha256 = "e25664b5aea0d0610879bf82d219cc97743a0b67236abcc8eb5abf78c6b2e6fe" %}
+{% set version = "90" %}
+{% set sha256 = "d1507e40bc7a920cbfb9df6f69029e84ad084d9804733af923587c10b7110f42" %}
 
 package:
   name: {{ name }}
@@ -14,11 +14,13 @@ source:
 build:
   number: 0
   skip: true  # [win or py2k]
+  noarch: python
+  entry_points:
+    - diffoscope = diffoscope.main:main
 
 requirements:
   build:
     - python
-    - python-magic
     - setuptools
   run:
     - python
