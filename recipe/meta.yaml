@@ -1,6 +1,6 @@
 {% set name = "diffoscope" %}
-{% set version = "93" %}
-{% set sha256 = "d2164f9d83c7469047a3cefa088ac69df8593d1cd48cf9e100539e808eb3203d" %}
+{% set version = "94" %}
+{% set sha256 = "a6cbd7d6b207a92b5ffb9945be132cf56cff6e1cf34f7749761ffd993261ec1e" %}
 
 package:
   name: {{ name }}
