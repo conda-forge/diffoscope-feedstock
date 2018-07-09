@@ -12,7 +12,6 @@ source:
 build:
   number: 0
   noarch: python
-  skip: true  # [win or py2k]
   script: python -m pip install --no-deps --ignore-installed .
   entry_points:
     - diffoscope = diffoscope.main:main
@@ -37,7 +36,7 @@ test:
     - diffoscope --help
     - diffoscope --list-tools
     - diffoscope --version
-    - |- 
+    - |-
       pytest ./tests \
       -k "not berkeley_db and not assert_non_existing and not test_icc"
 
