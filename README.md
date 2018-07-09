@@ -15,9 +15,8 @@ diffoscope will try to get to the bottom of what makes files or directories diff
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/diffoscope-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/diffoscope-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/diffoscope-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/diffoscope-feedstock)
-![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/diffoscope-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/diffoscope-feedstock)
 
 Current release info
 ====================

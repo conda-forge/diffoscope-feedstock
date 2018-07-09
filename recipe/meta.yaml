@@ -1,39 +1,48 @@
 {% set name = "diffoscope" %}
-{% set version = "98" %}
-{% set sha256 = "7863d56a3ca3bce9dd206e8b1a6199dda464df92e051a9b475e2e3093cfbf472" %}
+{% set version = "99" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 9d204ac51cc8ae59de755e1be0f7600e52b59badc32969942af4684c3f6f3f03
 
 build:
   number: 0
-  skip: true  # [win or py2k]
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
   entry_points:
     - diffoscope = diffoscope.main:main
 
 requirements:
   build:
-    - python
-    - setuptools
+    - python >=3.5
+    - pip
   run:
-    - python
+    - python >=3.5
     - python-libarchive-c
     - python-magic
-    - setuptools
 
 test:
+  source_files:
+    - tests
+  requires:
+    - pytest
   imports:
     - diffoscope
   commands:
     - diffoscope --help
     - diffoscope --list-tools
     - diffoscope --version
+    - |-
+      pytest ./tests -k "\
+        not assert_non_existing \
+        and not berkeley_db \
+        and not test_icc \
+        and not test_item1_elf \
+      "
 
 about:
   home: https://diffoscope.org
