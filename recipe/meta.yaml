@@ -37,8 +37,12 @@ test:
     - diffoscope --list-tools
     - diffoscope --version
     - |-
-      pytest ./tests \
-      -k "not berkeley_db and not assert_non_existing and not test_icc"
+      pytest ./tests -k "\
+        not assert_non_existing \
+        and not berkeley_db \
+        and not test_icc \
+        and not test_item1_elf \
+      "
 
 about:
   home: https://diffoscope.org
