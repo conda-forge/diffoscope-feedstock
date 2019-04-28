@@ -1,7 +1,3 @@
-<!--
-# -*- mode: jinja -*-
--->
-
 About diffoscope
 ================
 
@@ -19,8 +15,17 @@ diffoscope will try to get to the bottom of what makes files or directories diff
 Current build status
 ====================
 
-All platforms:
-[![noarch](https://img.shields.io/circleci/project/github/conda-forge/diffoscope-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/diffoscope-feedstock)
+
+<table><tr>
+    
+    <td>All platforms:</td>
+    <td>
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2857&branchName=master">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/diffoscope-feedstock?branchName=master">
+      </a>
+    </td>
+  </tr>
+</table>
 
 Current release info
 ====================
