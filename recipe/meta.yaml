@@ -24,6 +24,7 @@ requirements:
     - python >=3.5
     - python-libarchive-c
     - python-magic
+    - python-tlsh
 
 test:
   source_files:
@@ -42,6 +43,7 @@ test:
         and not berkeley_db \
         and not test_icc \
         and not test_item1_elf \
+        and not test_code_is_black_clean
       "
 
 about:
