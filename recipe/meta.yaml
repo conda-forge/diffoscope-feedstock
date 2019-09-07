@@ -45,7 +45,7 @@ test:
         and not test_item1_elf \
         and not test_code_is_black_clean \
         and not ocaml \
-        and not ignore_readelf_errors_differences
+        and not test_ignore_readelf_errors
       "
 
 about:
