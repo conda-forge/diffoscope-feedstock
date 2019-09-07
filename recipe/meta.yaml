@@ -43,7 +43,8 @@ test:
         and not berkeley_db \
         and not test_icc \
         and not test_item1_elf \
-        and not test_code_is_black_clean
+        and not test_code_is_black_clean \
+        and not ocaml
       "
 
 about:
