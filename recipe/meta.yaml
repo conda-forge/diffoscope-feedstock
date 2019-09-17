@@ -1,5 +1,5 @@
 {% set name = "diffoscope" %}
-{% set version = "123" %}
+{% set version = "124" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d05b76ebd89dac55cf29dfc3c1f6192f9bb0e27b119cf3db8b6d56402fd41043
+  sha256: 0cda0c786c95de21ea576b654039351fdc879ba8e6c40626a39349709daa51d9
 
 build:
   number: 0
