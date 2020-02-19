@@ -31,9 +31,11 @@ test:
     - tests
   requires:
     - pytest
+    - pip
   imports:
     - diffoscope
   commands:
+    - pip check
     - diffoscope --help
     - diffoscope --list-tools
     - diffoscope --version
