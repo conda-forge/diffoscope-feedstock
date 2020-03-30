@@ -1,5 +1,5 @@
 {% set name = "diffoscope" %}
-{% set version = "137" %}
+{% set version = "138" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e1fc59dbbae133da65c827ba990243119f30731b1489002c396d49c66300b9da
+  sha256: b75dd3f391f223ade205934df3b6932c35325e0f17368285abb2352ba0153911
 
 build:
   number: 0
@@ -59,11 +59,8 @@ about:
   license_file: COPYING
   dev_url: https://anonscm.debian.org/cgit/reproducible/diffoscope.git
   description: >
-    diffoscope will try to get to the bottom of what makes files or
-    directories different. It will recursively unpack archives of many kinds
-    and transform various binary formats into more human readable form to
-    compare them. It can compare two tarballs, ISO images, or PDF just as
-    easily.
+    diffoscope will try to get to the bottom of what makes files or directories different. It will recursively unpack archives of many kinds and transform various
+    binary formats into more human readable form to compare them. It can compare two tarballs, ISO images, or PDF just as easily.
 
 extra:
   recipe-maintainers:
