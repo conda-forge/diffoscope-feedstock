@@ -53,7 +53,7 @@ test:
 
 about:
   home: https://diffoscope.org
-  license: GPL-3.0
+  license: GPL-3.0-or-later
   summary: in-depth comparison of files, archives, and directories
   license_family: GPL
   license_file: COPYING
