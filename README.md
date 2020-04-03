@@ -3,7 +3,7 @@ About diffoscope
 
 Home: https://diffoscope.org
 
-Package license: GPL-3.0
+Package license: GPL-3.0-or-later
 
 Feedstock license: BSD 3-Clause
 
