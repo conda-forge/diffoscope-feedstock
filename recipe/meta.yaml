@@ -50,6 +50,7 @@ test:
         and not ocaml \
         and not test_ignore_readelf_errors \
         and not test_libmix_differences \
+        and not test_wasm
       "
 
 about:
