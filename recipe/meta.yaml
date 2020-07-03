@@ -30,12 +30,13 @@ test:
   source_files:
     - tests
   requires:
-    - pytest
+    - file
     - pip
+    - pytest
   imports:
     - diffoscope
   commands:
-    - pip check
+    - python -m pip check
     - diffoscope --help
     - diffoscope --list-tools
     - diffoscope --version
