@@ -1,5 +1,5 @@
 {% set name = "diffoscope" %}
-{% set version = "153" %}
+{% set version = "154" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b5104b5e72252df45ba6b7cbb0169e2e3407715b6b063fa5b38a2649b0d719a2
+  sha256: d8ab3453c3ee25059cd0528a46bf6bced417fa49acac3ba3a0bfba7f48968b21
 
 build:
   number: 0
@@ -26,32 +26,60 @@ requirements:
     - python-magic
     - python-tlsh
 
+{% set test_skips = [
+  "assert_non_existing",
+  "test_berkeley_db",
+  "test_code_is_black_clean",
+  "test_icc",
+  "test_wasm",
+] %}
+
 test:
   source_files:
     - tests
   requires:
-    - file
+    # pip check
     - pip
+    # real test deps
+    - file
     - pytest
+    # test extras
+    - pytest-azurepipelines
+    - pytest-cov
+    # extra tools
+    - argcomplete
+    - binutils
+    - bzip2
+    - defusedxml
+    - ffmpeg
+    - gettext
+    - ghc
+    - giflib
+    - hdf5
+    - imagemagick
+    - jsondiff
+    - libdb
+    - mono
+    - ocaml
+    - openssh
+    - postgresql
+    - progressbar
+    - pypdf2
+    - python-debian
+    - rpm-tools
+    - vim
+    - wabt
   imports:
     - diffoscope
   commands:
     - python -m pip check
+    - diffoscope --version | grep {{ version }}
     - diffoscope --help
     - diffoscope --list-tools
-    - diffoscope --version
-    - |-
-      pytest ./tests -k "\
-        not assert_non_existing \
-        and not berkeley_db \
-        and not test_icc \
-        and not test_item1_elf \
-        and not test_code_is_black_clean \
-        and not ocaml \
-        and not test_ignore_readelf_errors \
-        and not test_libmix_differences \
-        and not test_wasm
-      "
+    - diffoscope --list-missing-tools
+    - cp {{ RECIPE_DIR }}/setup.cfg .
+    # rest of test options in setup.cfg
+    - pytest -k "not ({{ ' or '.join(test_skips) }})"
 
 about:
   home: https://diffoscope.org
@@ -60,8 +88,11 @@ about:
   license_family: GPL
   license_file: COPYING
   dev_url: https://anonscm.debian.org/cgit/reproducible/diffoscope.git
-  description: >
-    diffoscope will try to get to the bottom of what makes files or directories different. It will recursively unpack archives of many kinds and transform various binary formats into more human readable form to compare them. It can compare two tarballs, ISO images, or PDF just as easily.
+  description: |-
+    diffoscope will try to get to the bottom of what makes files or directories
+    different. It will recursively unpack archives of many kinds and transform
+    various binary formats into more human readable form to compare them. It can
+    compare two tarballs, ISO images, or PDF just as easily.
 
 extra:
   recipe-maintainers:
