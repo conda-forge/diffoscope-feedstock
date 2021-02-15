@@ -9,7 +9,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/diffoscope-feed
 
 Summary: in-depth comparison of files, archives, and directories
 
-Development: https://anonscm.debian.org/cgit/reproducible/diffoscope.git
+Development: https://salsa.debian.org/reproducible-builds/diffoscope
 
 diffoscope will try to get to the bottom of what makes files or directories
 different. It will recursively unpack archives of many kinds and transform
@@ -35,6 +35,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-diffoscope-green.svg)](https://anaconda.org/conda-forge/diffoscope) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/diffoscope.svg)](https://anaconda.org/conda-forge/diffoscope) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/diffoscope.svg)](https://anaconda.org/conda-forge/diffoscope) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/diffoscope.svg)](https://anaconda.org/conda-forge/diffoscope) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-diffoscope--all--tools-green.svg)](https://anaconda.org/conda-forge/diffoscope-all-tools) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/diffoscope-all-tools.svg)](https://anaconda.org/conda-forge/diffoscope-all-tools) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/diffoscope-all-tools.svg)](https://anaconda.org/conda-forge/diffoscope-all-tools) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/diffoscope-all-tools.svg)](https://anaconda.org/conda-forge/diffoscope-all-tools) |
 
 Installing diffoscope
 =====================
@@ -45,10 +46,10 @@ Installing `diffoscope` from the `conda-forge` channel can be achieved by adding
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `diffoscope` can be installed with:
+Once the `conda-forge` channel has been enabled, `diffoscope, diffoscope-all-tools` can be installed with:
 
 ```
-conda install diffoscope
+conda install diffoscope diffoscope-all-tools
 ```
 
 It is possible to list all of the versions of `diffoscope` available on your platform with:
