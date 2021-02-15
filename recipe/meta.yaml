@@ -1,5 +1,6 @@
 {% set name = "diffoscope" %}
 {% set version = "166" %}
+{% set build_number = "0" %}
 
 package:
   name: {{ name }}
@@ -10,76 +11,123 @@ source:
   sha256: 20d0b4091ae535dc7d094bf5f366e0687e0b4337a268254b11925b8e7c9ea9c4
 
 build:
-  number: 0
+  number: {{ build_number }}
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
-  entry_points:
-    - diffoscope = diffoscope.main:main
 
 requirements:
   host:
-    - python >=3.5
     - pip
+    - python >=3.7
   run:
-    - python >=3.5
+    - python >=3.7
     - python-libarchive-c
     - python-magic
-    - python-tlsh
-
-{% set test_skips = [
-  "assert_non_existing",
-  "test_berkeley_db",
-  "test_code_is_black_clean",
-  "test_icc",
-  "test_wasm",
-] %}
 
 test:
-  source_files:
-    - tests
-  requires:
-    # pip check
-    - pip
-    # real test deps
-    - file
-    - pytest
-    # test extras
-    - pytest-azurepipelines
-    - pytest-cov
-    # extra tools
-    - argcomplete
-    - binutils
-    - bzip2
-    - defusedxml
-    - ffmpeg
-    - gettext
-    - ghc
-    - giflib
-    - hdf5
-    - imagemagick
-    - jsondiff
-    - libdb
-    - mono
-    - ocaml
-    - openssh
-    - postgresql
-    - progressbar
-    - pypdf2
-    - python-debian
-    - rpm-tools
-    - vim
-    - wabt
-  imports:
-    - diffoscope
   commands:
-    - python -m pip check
-    - diffoscope --version | grep {{ version }}
-    - diffoscope --help
-    - diffoscope --list-tools
-    - diffoscope --list-missing-tools
-    - cp {{ RECIPE_DIR }}/setup.cfg .
-    # rest of test options in setup.cfg
-    - pytest -k "not ({{ ' or '.join(test_skips) }})"
+    - echo "tests in subpackages"
+
+outputs:
+  - name: {{ name }}
+    build:
+      script: {{ PYTHON }} -m pip install . --no-deps -vv
+      noarch: python
+      number: {{ build_number }}
+      entry_points:
+        - diffoscope = diffoscope.main:main
+    requirements:
+      host:
+        - pip
+        - python >=3.7
+      run:
+        - python >=3.7
+        - python-libarchive-c
+        - python-magic
+    test:
+      imports:
+        - diffoscope
+      requires:
+        - pip
+      commands:
+        - python -m pip check
+        - diffoscope --version | grep {{ version }}
+        - diffoscope --help
+        - diffoscope --list-tools
+        - diffoscope --list-missing-tools
+
+  - name: {{ name }}-all-tools
+    build:
+      number: {{ build_number }}
+      noarch: python
+    requirements:
+      host:
+        - pip
+        - python >=3.7
+      run:
+        - {{ pin_compatible(name) }}
+        - argcomplete
+        - binutils
+        - bzip2
+        - cctools
+        - defusedxml
+        - ffmpeg
+        - gettext
+        - ghc
+        - giflib
+        - h5py
+        - hdf5
+        - imagemagick
+        - jsondiff
+        - libdb
+        - llvmdev
+        - mono
+        - ocaml
+        - openjdk
+        - openssh
+        - pdfminer
+        - postgresql
+        - progressbar
+        - pycryptodome
+        - pypdf2
+        - python-debian
+        - python-tlsh
+        - r
+        - rpm-tools
+        - unzip
+        - vim
+        - wabt
+    test:
+      source_files:
+        - tests
+      requires:
+        # pip check
+        - pip
+        # real test deps
+        - file
+        - pytest
+        # test extras
+        - pytest-cov
+      commands:
+        - python -m pip check
+        - diffoscope --list-missing-tools
+        - |-
+          pytest -vv \
+            --tb=long \
+            --cov=diffoscope \
+            --cov-report=term-missing \
+            --cov-report=term:skip-covered \
+            --cov-fail-under=78 \
+            --no-cov-on-fail \
+            -k="not ( \
+              assert_non_existing or \
+              test_berkeley_db or \
+              test_code_is_black_clean or \
+              test_elf or \
+              test_icc or \
+              test_macho or \
+              test_rlib or \
+              test_wasm \
+            )"
 
 about:
   home: https://diffoscope.org
@@ -93,6 +141,7 @@ about:
     different. It will recursively unpack archives of many kinds and transform
     various binary formats into more human readable form to compare them. It can
     compare two tarballs, ISO images, or PDF just as easily.
+  dev_url: https://salsa.debian.org/reproducible-builds/diffoscope
 
 extra:
   recipe-maintainers:
