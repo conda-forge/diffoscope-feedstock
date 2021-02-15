@@ -116,7 +116,7 @@ outputs:
             --cov=diffoscope \
             --cov-report=term-missing \
             --cov-report=term:skip-covered \
-            --cov-fail-under=78 \
+            --cov-fail-under=76 \
             --no-cov-on-fail \
             -k="not ( \
               assert_non_existing or \
