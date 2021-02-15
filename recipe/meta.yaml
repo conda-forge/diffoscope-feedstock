@@ -85,6 +85,7 @@ outputs:
         - openjdk
         - openssh
         - pdfminer
+        - poppler
         - postgresql
         - progressbar
         - pycryptodome
