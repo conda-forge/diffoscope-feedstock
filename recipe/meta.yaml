@@ -1,6 +1,5 @@
 {% set name = "diffoscope" %}
-{% set version = "166" %}
-{% set build_number = "0" %}
+{% set version = "170" %}
 
 package:
   name: {{ name }}
@@ -8,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 20d0b4091ae535dc7d094bf5f366e0687e0b4337a268254b11925b8e7c9ea9c4
+  sha256: c3aa11ffcbfee59fc27ad46d1deed4340ecc5478511be2e9649b4fa2ca6f44ec
 
 build:
-  number: {{ build_number }}
+  number: 0
   noarch: python
 
 requirements:
@@ -32,7 +31,6 @@ outputs:
     build:
       script: {{ PYTHON }} -m pip install . --no-deps -vv
       noarch: python
-      number: {{ build_number }}
       entry_points:
         - diffoscope = diffoscope.main:main
     requirements:
@@ -57,7 +55,6 @@ outputs:
 
   - name: {{ name }}-all-tools
     build:
-      number: {{ build_number }}
       noarch: python
     requirements:
       host:
