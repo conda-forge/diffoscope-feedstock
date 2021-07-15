@@ -1,5 +1,5 @@
 {% set name = "diffoscope" %}
-{% set version = "170" %}
+{% set version = "177" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c3aa11ffcbfee59fc27ad46d1deed4340ecc5478511be2e9649b4fa2ca6f44ec
+  sha256: 8ac0cad150914bab2a53caa3f21876a78b092f3d2a36b9134874cd5c04a26b2e
 
 build:
   number: 0
@@ -133,7 +133,6 @@ about:
   summary: in-depth comparison of files, archives, and directories
   license_family: GPL
   license_file: COPYING
-  dev_url: https://anonscm.debian.org/cgit/reproducible/diffoscope.git
   description: |-
     diffoscope will try to get to the bottom of what makes files or directories
     different. It will recursively unpack archives of many kinds and transform
