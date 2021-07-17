@@ -67,10 +67,12 @@ outputs:
         - bzip2
         - cctools
         - defusedxml
+        - e2fsprogs
         - ffmpeg
         - gettext
         - ghc
         - giflib
+        - gnupg
         - h5py
         - hdf5
         - imagemagick
@@ -81,7 +83,7 @@ outputs:
         - ocaml
         - openjdk
         - openssh
-        - pdfminer
+        - pdfminer.six
         - poppler
         - postgresql
         - progressbar
@@ -94,6 +96,7 @@ outputs:
         - unzip
         - vim
         - wabt
+        - zip
     test:
       source_files:
         - tests
