@@ -126,6 +126,7 @@ outputs:
               test_code_is_black_clean or \
               test_elf or \
               test_icc or \
+              test_item_rdb or \
               test_macho or \
               test_rlib or \
               test_wasm \
