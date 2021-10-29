@@ -129,7 +129,8 @@ outputs:
               test_item_rdb or \
               test_macho or \
               test_rlib or \
-              test_wasm \
+              test_wasm or \
+              (test_pdf and test_no_differences)
             )"
 
 about:
