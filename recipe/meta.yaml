@@ -130,7 +130,7 @@ outputs:
               test_macho or \
               test_rlib or \
               test_wasm or \
-              (test_pdf and test_no_differences)
+              (test_pdf and test_no_differences) \
             )"
 
 about:
