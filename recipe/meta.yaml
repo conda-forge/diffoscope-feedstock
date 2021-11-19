@@ -1,5 +1,5 @@
 {% set name = "diffoscope" %}
-{% set version = "192" %}
+{% set version = "193" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ae2774334fce7905f1b938a155d487d55b9fef9da9a9d18eda3d74951a8a8084
+  sha256: d836ddf24ccb4ffabd798ea1b7fcb66b87e55d5e8ff08286620bb7c64e1d829f
 
 build:
   number: 0
@@ -67,9 +67,9 @@ outputs:
         - bzip2
         - cctools
         - defusedxml
+        - docx2txt
         - e2fsprogs
-        # TODO: restore after https://github.com/conda-forge/ffmpeg-feedstock/pull/100
-        # - ffmpeg >=4.4
+        - ffmpeg
         - gettext
         - ghc
         - giflib
@@ -94,6 +94,7 @@ outputs:
         - python-tlsh
         - r
         - rpm-tools
+        - squashfs-tools
         - unzip
         - vim
         - wabt
@@ -118,7 +119,7 @@ outputs:
             --cov=diffoscope \
             --cov-report=term-missing \
             --cov-report=term:skip-covered \
-            --cov-fail-under=75 \
+            --cov-fail-under=77 \
             --no-cov-on-fail \
             -k="not ( \
               assert_non_existing or \
@@ -130,6 +131,7 @@ outputs:
               test_macho or \
               test_rlib or \
               test_wasm or \
+              test_docx or \
               (test_pdf and test_no_differences) \
             )"
 
