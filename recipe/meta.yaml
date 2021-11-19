@@ -68,8 +68,7 @@ outputs:
         - cctools
         - defusedxml
         - e2fsprogs
-        # TODO: restore after https://github.com/conda-forge/ffmpeg-feedstock/pull/100
-        # - ffmpeg >=4.4
+        - ffmpeg
         - gettext
         - ghc
         - giflib
