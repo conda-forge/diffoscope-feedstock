@@ -119,7 +119,7 @@ outputs:
             --cov=diffoscope \
             --cov-report=term-missing \
             --cov-report=term:skip-covered \
-            --cov-fail-under=75 \
+            --cov-fail-under=77 \
             --no-cov-on-fail \
             -k="not ( \
               assert_non_existing or \
@@ -131,6 +131,7 @@ outputs:
               test_macho or \
               test_rlib or \
               test_wasm or \
+              test_docx or \
               (test_pdf and test_no_differences) \
             )"
 
