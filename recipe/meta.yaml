@@ -67,6 +67,7 @@ outputs:
         - bzip2
         - cctools
         - defusedxml
+        - docx2txt
         - e2fsprogs
         - ffmpeg
         - gettext
@@ -93,6 +94,7 @@ outputs:
         - python-tlsh
         - r
         - rpm-tools
+        - squashfs-tools
         - unzip
         - vim
         - wabt
