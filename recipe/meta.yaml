@@ -60,7 +60,7 @@ outputs:
         - pip
         - python >=3.7
       run:
-        - {{ pin_compatible("diffoscope") }}
+        - {{ pin_subpackage("diffoscope") }}
         - argcomplete
         - binutils
         - bzip2
