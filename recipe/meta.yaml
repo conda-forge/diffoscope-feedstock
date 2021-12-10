@@ -1,12 +1,11 @@
-{% set name = "diffoscope" %}
 {% set version = "196" %}
 
 package:
-  name: {{ name }}
+  name: diffoscope-split
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/d/diffoscope/diffoscope-{{ version }}.tar.gz
   sha256: d31fd0d8ac58d41cc111ef6a3bb0007f5f52543b932bf93584bdd0dfe029e626
 
 build:
@@ -27,7 +26,7 @@ test:
     - echo "tests in subpackages"
 
 outputs:
-  - name: {{ name }}
+  - name: diffoscope
     build:
       script: {{ PYTHON }} -m pip install . --no-deps -vv
       noarch: python
@@ -53,7 +52,7 @@ outputs:
         - diffoscope --list-tools
         - diffoscope --list-missing-tools
 
-  - name: {{ name }}-all-tools
+  - name: diffoscope-all-tools
     build:
       noarch: python
     requirements:
@@ -61,7 +60,7 @@ outputs:
         - pip
         - python >=3.7
       run:
-        - {{ pin_compatible(name) }}
+        - {{ pin_compatible("diffoscope") }}
         - argcomplete
         - binutils
         - bzip2
@@ -149,5 +148,6 @@ about:
   dev_url: https://salsa.debian.org/reproducible-builds/diffoscope
 
 extra:
+  feedstock-name: diffoscope
   recipe-maintainers:
     - bollwyvl
