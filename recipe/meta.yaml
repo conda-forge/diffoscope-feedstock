@@ -1,4 +1,4 @@
-{% set version = "207" %}
+{% set version = "208" %}
 
 package:
   name: diffoscope-split
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/diffoscope/diffoscope-{{ version }}.tar.gz
-  sha256: e670160911c8e465ab178f23bd1a2e6a827032b7bbec5f24eebf9215f1ae5f54
+  sha256: 2c5c0ac1159eefce158154849fe67f0f527dffc5295bfd3ca1aef14962ffcbcb
 
 build:
   number: 0
@@ -118,7 +118,7 @@ outputs:
             --cov=diffoscope \
             --cov-report=term-missing \
             --cov-report=term:skip-covered \
-            --cov-fail-under=77 \
+            --cov-fail-under=76 \
             --no-cov-on-fail \
             -k="not ( \
               assert_non_existing or \
