@@ -75,6 +75,7 @@ outputs:
         - gnupg
         - h5py
         - hdf5
+        - html2text
         - imagemagick
         - jsondiff
         - libdb
