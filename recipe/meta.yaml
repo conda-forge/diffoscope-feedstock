@@ -132,7 +132,8 @@ outputs:
               test_rlib or \
               test_wasm or \
               test_docx or \
-              (test_pdf and test_no_differences) \
+              (test_pdf and test_no_differences) or \
+              (test_html and test_diff) \
             )"
 
 about:
