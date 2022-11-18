@@ -1,4 +1,4 @@
-{% set version = "226" %}
+{% set version = "227" %}
 
 package:
   name: diffoscope-split
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/diffoscope/diffoscope-{{ version }}.tar.gz
-  sha256: 3dbdc5dccdc110b67cd57418e4d710397717c2652c833ba043787d83a8f60e1e
+  sha256: 0727b64dd78254e4e53beb2d2541b4f0933b601fa4ca34960d0c9abae5cbb6a9
 
 build:
   number: 0
