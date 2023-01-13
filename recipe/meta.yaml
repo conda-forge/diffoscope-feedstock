@@ -1,4 +1,4 @@
-{% set version = "231" %}
+{% set version = "232" %}
 
 package:
   name: diffoscope-split
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/diffoscope/diffoscope-{{ version }}.tar.gz
-  sha256: f08cddd1eb8312f196489a575d65e63ed00e17cb778f3934f8397b10f9d02d4b
+  sha256: 1fd10b465d3566e6f65bdc00b6a814ff129900a2f4f9f4bae922069467214082
 
 build:
   number: 0
@@ -89,7 +89,7 @@ outputs:
         - postgresql
         - progressbar
         - pycryptodome
-        - pypdf2 <1.28.0
+        - pypdf
         - python-debian
         - python-tlsh
         - r
