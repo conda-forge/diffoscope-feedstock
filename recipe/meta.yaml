@@ -63,6 +63,7 @@ outputs:
         - {{ pin_subpackage("diffoscope") }}
         - argcomplete
         - binutils
+        - binwalk
         - bzip2
         - cctools
         - defusedxml
