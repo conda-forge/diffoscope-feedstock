@@ -70,6 +70,7 @@ outputs:
         - docx2txt
         - e2fsprogs
         - ffmpeg
+        - fonttools
         - gettext
         - ghc
         - giflib
@@ -81,6 +82,7 @@ outputs:
         - jsondiff
         - libdb
         - llvmdev
+        - lzip
         - mono
         - ocaml
         - openjdk
