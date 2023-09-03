@@ -97,6 +97,7 @@ outputs:
         - python-tlsh
         - r
         - rpm-tools
+        - sng
         - squashfs-tools
         - unzip
         - vim
