@@ -97,7 +97,7 @@ outputs:
         - python-tlsh
         - r
         - rpm-tools
-        - sng
+        # - sng  TODO: investigate issues, might be also missing other tools to pass tests
         - squashfs-tools
         - unzip
         - vim
