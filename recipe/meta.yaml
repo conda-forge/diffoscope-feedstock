@@ -1,4 +1,4 @@
-{% set version = "248" %}
+{% set version = "249" %}
 
 package:
   name: diffoscope-split
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/diffoscope/diffoscope-{{ version }}.tar.gz
-  sha256: 0a5cf630b773abef4ec9e2bc0bfe3cf04a86d73642f72f123082756124073763
+  sha256: bc4d8cb3198025013784ef7e3fa61b7a642de39e5b790c45d7c29d153306fbdd
 
 build:
   number: 0
@@ -63,12 +63,14 @@ outputs:
         - {{ pin_subpackage("diffoscope") }}
         - argcomplete
         - binutils
+        - binwalk
         - bzip2
         - cctools
         - defusedxml
         - docx2txt
         - e2fsprogs
         - ffmpeg
+        - fonttools
         - gettext
         - ghc
         - giflib
@@ -80,6 +82,7 @@ outputs:
         - jsondiff
         - libdb
         - llvmdev
+        - lzip
         - mono
         - ocaml
         - openjdk
@@ -94,6 +97,7 @@ outputs:
         - python-tlsh
         - r
         - rpm-tools
+        # - sng  TODO: investigate issues, might be also missing other tools to pass tests
         - squashfs-tools
         - unzip
         - vim
