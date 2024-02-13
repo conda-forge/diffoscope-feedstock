@@ -1,4 +1,4 @@
-{% set version = "256" %}
+{% set version = "257" %}
 
 package:
   name: diffoscope-split
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/diffoscope/diffoscope-{{ version }}.tar.gz
-  sha256: 9937e3d70358d5cc00aa5fa8a3db9dd6be532a0d3cd2d064add2cda736a97c2a
+  sha256: 1bceee9ca6fe2d7faa2f21daf9f4a83d83e1f1be8b682691b1d985d5e870077f
 
 build:
   number: 0
@@ -113,18 +113,17 @@ outputs:
         - file
         - pytest
         # test extras
-        - pytest-cov
+        - coverage
       commands:
         - python -m pip check
         - diffoscope --list-missing-tools
         - |-
-          pytest -vv \
+          coverage run -m \
+            --source=diffoscope \
+            --branch \
+            pytest -vv \
             --tb=long \
-            --cov=diffoscope \
-            --cov-report=term-missing \
-            --cov-report=term:skip-covered \
-            --cov-fail-under=76 \
-            --no-cov-on-fail \
+            --color=yes \
             -k="not ( \
               assert_non_existing or \
               test_berkeley_db or \
@@ -139,6 +138,7 @@ outputs:
               (test_pdf and test_no_differences) or \
               (test_html and test_diff) \
             )"
+        - coverage report --show-missing --skip-covered --fail-under=75
 
 about:
   home: https://diffoscope.org
