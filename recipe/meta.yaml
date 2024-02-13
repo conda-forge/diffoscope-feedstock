@@ -138,7 +138,7 @@ outputs:
               (test_pdf and test_no_differences) or \
               (test_html and test_diff) \
             )"
-          - coverage report --show-missing --skip-covered --fail-under=75
+        - coverage report --show-missing --skip-covered --fail-under=75
 
 about:
   home: https://diffoscope.org
