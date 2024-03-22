@@ -1,5 +1,10 @@
 {% set version = "261" %}
 
+{% set min_python = "python >=3.7" %}
+
+# handle undefined PYTHON in `noarch: generic` outputs
+{% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
+
 package:
   name: diffoscope-split
   version: {{ version }}
@@ -14,12 +19,9 @@ build:
 
 requirements:
   host:
-    - pip
-    - python >=3.7
+    - {{ min_python }}
   run:
-    - python >=3.7
-    - python-libarchive-c
-    - python-magic
+    - {{ min_python }}
 
 test:
   commands:
@@ -28,16 +30,16 @@ test:
 outputs:
   - name: diffoscope
     build:
-      script: {{ PYTHON }} -m pip install . --no-deps -vv
       noarch: python
+      script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
       entry_points:
         - diffoscope = diffoscope.main:main
     requirements:
       host:
+        - {{ min_python }}
         - pip
-        - python >=3.7
       run:
-        - python >=3.7
+        - {{ min_python }}
         - python-libarchive-c
         - python-magic
     test:
@@ -54,13 +56,10 @@ outputs:
 
   - name: diffoscope-all-tools
     build:
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - pip
-        - python >=3.7
       run:
-        - {{ pin_subpackage("diffoscope") }}
+        - {{ pin_subpackage("diffoscope", max_pin="x.x") }}
         - argcomplete
         - binutils
         - binwalk
