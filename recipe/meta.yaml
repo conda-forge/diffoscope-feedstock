@@ -1,4 +1,5 @@
-{% set version = "262" %}
+{% set min_python = "python >=3.7" %}
+{% set version = "263" %}
 
 {% set min_python = "python >=3.7" %}
 
@@ -11,7 +12,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/diffoscope/diffoscope-{{ version }}.tar.gz
-  sha256: 010f0c2ad89f61a8b24f4710953ad2f2ba8c68ac9d05ba6b266929498c8bb06f
+  sha256: 9de909523729b9e700dcbdea362d23e09d8a31d71da499edd02ea4e3222b46bf
 
 build:
   number: 0
