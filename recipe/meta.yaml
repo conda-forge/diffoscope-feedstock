@@ -1,7 +1,4 @@
-{% set min_python = "python >=3.7" %}
 {% set version = "263" %}
-
-{% set min_python = "python >=3.7" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -20,9 +17,9 @@ build:
 
 requirements:
   host:
-    - {{ min_python }}
+    - python >=3.7
   run:
-    - {{ min_python }}
+    - python >=3.7
 
 test:
   commands:
@@ -32,15 +29,15 @@ outputs:
   - name: diffoscope
     build:
       noarch: python
-      script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
+      script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation --disable-pip-version-check
       entry_points:
         - diffoscope = diffoscope.main:main
     requirements:
       host:
-        - {{ min_python }}
+        - python >=3.7
         - pip
       run:
-        - {{ min_python }}
+        - python >=3.7
         - python-libarchive-c
         - python-magic
     test:
@@ -87,6 +84,7 @@ outputs:
         - ocaml
         - openjdk
         - openssh
+        - perl
         - pdfminer.six
         - poppler
         - postgresql
