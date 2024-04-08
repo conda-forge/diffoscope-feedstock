@@ -102,6 +102,8 @@ outputs:
         - wabt
         - zip
     test:
+      files:
+        - run_tests.py
       source_files:
         - tests
       requires:
@@ -113,30 +115,12 @@ outputs:
         # test extras
         - coverage
       commands:
-        - python -m pip check
+        - pip check
+        - diffoscope --version
+        - diffoscope --help
         - diffoscope --list-missing-tools
-        - |-
-          coverage run -m \
-            --source=diffoscope \
-            --branch \
-            pytest -vv \
-            --tb=long \
-            --color=yes \
-            -k="not ( \
-              assert_non_existing or \
-              test_berkeley_db or \
-              test_code_is_black_clean or \
-              test_elf or \
-              test_icc or \
-              test_item_rdb or \
-              test_macho or \
-              test_rlib or \
-              test_wasm or \
-              test_docx or \
-              (test_pdf and test_no_differences) or \
-              (test_html and test_diff) \
-            )"
-        - coverage report --show-missing --skip-covered --fail-under=75
+        - python run_tests.py
+
 
 about:
   home: https://diffoscope.org
