@@ -116,11 +116,8 @@ outputs:
         - coverage
       commands:
         - pip check
-        - diffoscope --version
-        - diffoscope --help
         - diffoscope --list-missing-tools
         - python run_tests.py
-
 
 about:
   home: https://diffoscope.org

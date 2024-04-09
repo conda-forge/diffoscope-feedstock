@@ -3,8 +3,10 @@ from subprocess import call
 
 FAIL_UNDER = 75
 
+COV = [sys.executable, "-m", "coverage"]
+
 TEST_ARGS = [
-    "coverage",
+    *COV,
     "run",
     "-m",
     "--source=diffoscope",
@@ -17,7 +19,7 @@ TEST_ARGS = [
 ]
 
 REPORT_ARGS = [
-    "coverage",
+    *COV,
     "report",
     "--show-missing",
     "--skip-covered",
