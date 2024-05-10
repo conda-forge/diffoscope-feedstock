@@ -62,6 +62,9 @@ K_COMPOUND = [
             "test_mozzip_metadata",
         ],
     ],
+    # https://github.com/conda-forge/diffoscope-feedstock/pull/164
+    ["test_ffprobe", ["test_diff"]],
+    ["test_xz", ["test_content_diff"]],
 ]
 
 K_ALL = _join(
