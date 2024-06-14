@@ -79,6 +79,14 @@ K_ALL = _join(
 
 TEST_ARGS += ["-k", f"not {K_ALL}"]
 
+GLOBS = [
+   # https://github.com/conda-forge/diffoscope-feedstock/pull/169
+   # needs `perl >=5.40` for `zipdetails 4.004`
+   "test_zip.py"
+]
+
+TEST_ARGS += sum([["--ignore-glob", g] for g in GLOBS])
+
 if __name__ == "__main__":
     print(TEST_ARGS)
     print(REPORT_ARGS)
