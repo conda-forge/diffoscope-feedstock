@@ -1,7 +1,7 @@
 import sys
 from subprocess import call
 
-FAIL_UNDER = 75
+FAIL_UNDER = 74
 
 COV = [sys.executable, "-m", "coverage"]
 
@@ -78,6 +78,15 @@ K_ALL = _join(
 )
 
 TEST_ARGS += ["-k", f"not {K_ALL}"]
+
+GLOBS = [
+    # https://github.com/conda-forge/diffoscope-feedstock/pull/169
+    # needs `perl >=5.40` for `zipdetails 4.004`
+    "test_zip",
+    "test_epub",
+]
+
+TEST_ARGS += sum([["--ignore-glob", f"**/{g}.py"] for g in GLOBS], [])
 
 if __name__ == "__main__":
     print(TEST_ARGS)
