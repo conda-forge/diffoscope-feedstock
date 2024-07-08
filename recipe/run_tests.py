@@ -43,6 +43,8 @@ K_SIMPLE = [
     "test_rlib",
     "test_wasm",
     "test_docx",
+    # https://github.com/conda-forge/diffoscope-feedstock/pull/170
+    "test_sbin_added_to_path"
 ]
 
 K_COMPOUND = [
