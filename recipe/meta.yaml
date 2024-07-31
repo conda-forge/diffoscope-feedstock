@@ -36,6 +36,7 @@ outputs:
       host:
         - python >=3.7
         - pip
+        - setuptools
       run:
         - python >=3.7
         - python-libarchive-c
