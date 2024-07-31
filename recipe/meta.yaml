@@ -1,4 +1,4 @@
-{% set version = "272" %}
+{% set version = "273" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/diffoscope/diffoscope-{{ version }}.tar.gz
-  sha256: f8983580efb8f4644719705590a43817d1159d4136836d7ce6dd4fec754c3943
+  sha256: 2555c7688c8a0e09a152381bbe1b09bbf4c63b55445fb775af810c0af32e6983
 
 build:
   number: 0
