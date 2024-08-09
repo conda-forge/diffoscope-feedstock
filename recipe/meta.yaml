@@ -45,9 +45,9 @@ outputs:
       imports:
         - diffoscope
       requires:
-        - pip
+        - pip <24
       commands:
-        - python -m pip check
+        - pip check
         - diffoscope --version | grep {{ version }}
         - diffoscope --help
         - diffoscope --list-tools
