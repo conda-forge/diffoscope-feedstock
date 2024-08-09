@@ -110,7 +110,7 @@ outputs:
         - tests
       requires:
         # pip check
-        - pip
+        - pip <24
         # real test deps
         - file
         - pytest
