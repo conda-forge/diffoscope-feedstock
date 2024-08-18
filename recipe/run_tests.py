@@ -70,7 +70,7 @@ K_COMPOUND = [
     # https://github.com/conda-forge/diffoscope-feedstock/pull/165
     ["test_xz", ["test_content_source_verbose"]],
     # https://github.com/conda-forge/diffoscope-feedstock/pull/173
-    ["test_python", ["test_identification", "test_diff]],
+    ["test_python", ["test_identification", "test_diff"]],
 ]
 
 K_ALL = _join(
