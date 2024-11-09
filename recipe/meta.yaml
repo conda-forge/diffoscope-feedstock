@@ -2,13 +2,14 @@
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
+{% set python_min = python_min | default("3.9") %}
 
 package:
   name: diffoscope-split
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/d/diffoscope/diffoscope-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/d/diffoscope/diffoscope-{{ version }}.tar.gz
   sha256: 0469ff70e1f37b5e96496f5e3c88dbafcf03fafff409a90601ed84febc31c543
 
 build:
@@ -17,9 +18,9 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
   run:
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
   commands:
@@ -34,18 +35,19 @@ outputs:
         - diffoscope = diffoscope.main:main
     requirements:
       host:
-        - python >=3.7
+        - python {{ python_min }}
         - pip
         - setuptools
       run:
-        - python >=3.7
+        - python >={{ python_min }}
         - python-libarchive-c
         - python-magic
     test:
-      imports:
-        - diffoscope
       requires:
         - pip <24
+        - python {{ python_min }}
+      imports:
+        - diffoscope
       commands:
         - pip check
         - diffoscope --version | grep {{ version }}
