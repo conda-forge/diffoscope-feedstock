@@ -103,7 +103,7 @@ outputs:
         - unzip
         - vim
         - wabt
-        - xz
+        - xz-tools
         - zip
     test:
       files:
