@@ -27,8 +27,8 @@ outputs:
           - diffoscope = diffoscope.main:main
     requirements:
       host:
-        - python ${{ python_min }}.*
         - pip
+        - python ${{ python_min }}.*
         - setuptools
       run:
         - python >=${{ python_min }}
@@ -111,7 +111,7 @@ outputs:
             - tests/
         requirements:
           run:
-            - pip <24
+            - python ${{ python_min }}.*
             - file
             - pytest
             - coverage
