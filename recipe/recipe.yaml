@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "293"
+  version: "294"
 
 recipe:
   name: diffoscope
@@ -10,7 +10,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/d/diffoscope/diffoscope-${{ version }}.tar.gz
-  sha256: 15315d09babdee45449be7042ad1f57104a5f04853bd6951cdc0da171c13ac3b
+  sha256: 6833785359cade9930fa6d0699f646d62e937bebdb00182e499420f79084cb0d
 
 build:
   number: 0
