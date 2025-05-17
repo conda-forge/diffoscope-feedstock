@@ -3,6 +3,7 @@ schema_version: 1
 
 context:
   version: "296"
+  python_check_max: "3.13"
 
 recipe:
   name: diffoscope
@@ -36,9 +37,11 @@ outputs:
         - python-magic
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: diffoscope
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
       - requirements:
           run:
             - python ${{ python_min }}.*
@@ -101,9 +104,11 @@ outputs:
         - zip
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: diffoscope
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
       - files:
           recipe:
             - run_tests.py
