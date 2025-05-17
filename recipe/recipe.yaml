@@ -4,7 +4,7 @@ schema_version: 1
 context:
   version: "296"
   # TODO: bump to 3.13 after rpm-tools is healthy
-  python_check_max: "3.12"
+  python_check_max: "3.11"
 
 recipe:
   name: diffoscope
