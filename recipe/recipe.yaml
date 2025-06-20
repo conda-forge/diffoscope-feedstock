@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "298"
+  version: "299"
   # TODO: bump to 3.13 after rpm-tools is healthy
   python_check_max: "3.11"
 
@@ -12,7 +12,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/d/diffoscope/diffoscope-${{ version }}.tar.gz
-  sha256: 9644b7e711df71f13c5f50f3d1353c1e6d09f462d342d9771576e75f3dd8c3e1
+  sha256: f40492b926e8ef38ba51bdda0bf0a350ad9f99b35db73506ee63f7be7a8e0465
 
 build:
   number: 0
