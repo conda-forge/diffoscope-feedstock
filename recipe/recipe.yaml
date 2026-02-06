@@ -3,8 +3,7 @@ schema_version: 1
 
 context:
   version: "312"
-  # TODO: bump to 3.13 after rpm-tools is healthy
-  python_check_max: "3.11"
+  python_check_max: "3.14"
 
 recipe:
   name: diffoscope
@@ -134,8 +133,9 @@ about:
     different. It will recursively unpack archives of many kinds and transform
     various binary formats into more human readable form to compare them. It can
     compare two tarballs, ISO images, or PDF just as easily.
-  homepage: https://diffoscope.org
+  homepage: https://pypi.org/project/diffoscope
   repository: https://salsa.debian.org/reproducible-builds/diffoscope
+  documentation: https://diffoscope.org
 
 extra:
   feedstock-name: diffoscope
