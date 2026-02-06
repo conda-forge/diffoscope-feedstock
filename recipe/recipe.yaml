@@ -4,6 +4,8 @@ schema_version: 1
 context:
   version: "312"
   python_check_max: "3.14"
+  # TODO: revisit when e2fsprogs will install with newer
+  python_check_max_all_tools: "3.11"
 
 recipe:
   name: diffoscope
@@ -108,7 +110,7 @@ outputs:
           pip_check: true
           python_version:
             - ${{ python_min }}.*
-            - ${{ python_check_max }}.*
+            - ${{ python_check_max_all_tools }}.*
       - files:
           recipe:
             - run_tests.py
