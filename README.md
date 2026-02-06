@@ -3,13 +3,15 @@ About diffoscope-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/diffoscope-feedstock/blob/main/LICENSE.txt)
 
-Home: https://diffoscope.org/
+Home: https://pypi.org/project/diffoscope
 
 Package license: GPL-3.0-or-later
 
 Summary: in-depth comparison of files, archives, and directories
 
 Development: https://salsa.debian.org/reproducible-builds/diffoscope
+
+Documentation: https://diffoscope.org/
 
 diffoscope will try to get to the bottom of what makes files or directories
 different. It will recursively unpack archives of many kinds and transform
