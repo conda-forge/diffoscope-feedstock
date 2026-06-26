@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "321"
+  version: "322"
   python_check_max: "3.14"
   # TODO: revisit when e2fsprogs will install with newer
   python_check_max_all_tools: "3.11"
@@ -13,7 +13,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/d/diffoscope/diffoscope-${{ version }}.tar.gz
-  sha256: 334ed39f13f92a1ffad5018a4038a88dacc4a287996601082d8af4428e1f0493
+  sha256: 456b0ef4265468f21fdf3c3e08bcacf1fc270d3bda799c84f93298604d3dc24d
 
 build:
   number: 0
