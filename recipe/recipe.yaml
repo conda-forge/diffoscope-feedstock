@@ -4,15 +4,13 @@ schema_version: 1
 context:
   version: "330"
   python_check_max: "3.14"
-  # TODO: revisit when e2fsprogs will install with newer
-  python_check_max_all_tools: "3.11"
 
 recipe:
   name: diffoscope
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/d/diffoscope/diffoscope-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/d/diffoscope/diffoscope-${{ version }}.tar.gz
   sha256: 92fb70b930077282ceaf104b4eb02c6368c860b0c89d6aab98f0a55682ee0361
 
 build:
@@ -24,7 +22,8 @@ outputs:
       name: diffoscope
     build:
       noarch: python
-      script: ${{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation --disable-pip-version-check
+      script: |-
+        ${{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation --disable-pip-version-check --check-build-dependencies
       python:
         entry_points:
           - diffoscope = diffoscope.main:main
@@ -38,6 +37,10 @@ outputs:
         - python-libarchive-c
         - python-magic
     tests:
+      - package_contents:
+          site_packages:
+            - diffoscope/**
+            - diffoscope-${{ version }}.dist-info/**
       - python:
           imports: diffoscope
           pip_check: true
@@ -59,7 +62,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - ${{ pin_subpackage("diffoscope", upper_bound="x.x") }}
+        - ${{ pin_subpackage("diffoscope", exact=True) }}
         - argcomplete
         - binutils
         - binwalk
@@ -67,7 +70,6 @@ outputs:
         - cctools
         - defusedxml
         - docx2txt
-        - e2fsprogs
         - ffmpeg
         - fonttools
         - gettext
@@ -110,7 +112,7 @@ outputs:
           pip_check: true
           python_version:
             - ${{ python_min }}.*
-            - ${{ python_check_max_all_tools }}.*
+            - ${{ python_check_max }}.*
       - files:
           recipe:
             - run_tests.py
