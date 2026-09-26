@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "330"
+  version: "331"
   python_check_max: "3.14"
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://files.pythonhosted.org/packages/source/d/diffoscope/diffoscope-${{ version }}.tar.gz
-  sha256: 92fb70b930077282ceaf104b4eb02c6368c860b0c89d6aab98f0a55682ee0361
+  sha256: 298a62c374f5d60dd3d3af38cdea21cbad7148c84dbfe9cc5a91fdb1b5af4e37
 
 build:
   number: 0
