@@ -38,6 +38,7 @@ outputs:
         - python-magic
     tests:
       - package_contents:
+          strict: true
           site_packages:
             - diffoscope/**
             - diffoscope-${{ version }}.dist-info/**
@@ -62,6 +63,7 @@ outputs:
       noarch: generic
     requirements:
       run:
+        # - sng  TODO: investigate issues, might be also missing other tools to pass tests
         - ${{ pin_subpackage("diffoscope", exact=True) }}
         - argcomplete
         - binutils
@@ -80,14 +82,17 @@ outputs:
         - hdf5
         - html2text
         - imagemagick
+        - jsbeautifier
         - jsondiff
         - libdb
+        - libxmlb
         - llvmdev
         - lzip
         - mono
         - ocaml
         - openjdk
         - openssh
+        - p7zip
         - perl
         - pdfminer.six
         - poppler
@@ -99,7 +104,6 @@ outputs:
         - python-tlsh
         - r
         - rpm-tools
-        # - sng  TODO: investigate issues, might be also missing other tools to pass tests
         - squashfs-tools
         - unzip
         - vim
