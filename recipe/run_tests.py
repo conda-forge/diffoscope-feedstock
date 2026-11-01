@@ -1,7 +1,7 @@
 import sys
 from subprocess import call
 
-FAIL_UNDER = 73
+FAIL_UNDER = 72
 
 COV = [sys.executable, "-m", "coverage"]
 
@@ -71,6 +71,8 @@ K_COMPOUND = [
     ["test_xz", ["test_content_source_verbose"]],
     # https://github.com/conda-forge/diffoscope-feedstock/pull/173
     ["test_python", ["test_identification", "test_diff"]],
+    # https://github.com/conda-forge/diffoscope-feedstock/pull/221
+    ["test_ocaml", ["test_diff"]],
 ]
 
 K_ALL = _join(
