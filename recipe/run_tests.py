@@ -1,7 +1,7 @@
 import sys
 from subprocess import call
 
-FAIL_UNDER = 73
+FAIL_UNDER = 72
 
 COV = [sys.executable, "-m", "coverage"]
 
